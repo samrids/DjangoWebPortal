@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+    <title>Django Web Portal</title>
+    <head>
+        <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+        <!-- semantic UI -->
+        <link rel="stylesheet" type='text/css' href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.2.14/semantic.min.css">
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.4.1/semantic.min.js"></script>         
+    </head>
+<body>
+    <div class="ui sizer vertical segment">
+        <h2 class="ui center aligned icon header">
+            <i class="circular linkify icon"></i>
+            Web Portal
+        </h2>
+        <h2 class="ui center aligned header">This is a web portal work with Django</h2>
+    </div>        
+    <p></p> 
+    <div class="ui four stackable cards">
+        {% for item in projects %}
+            <div class="card">
+                <div class="ui center aligned">
+                    <svg width="150" height="150">
+                        <image xlink:href="{{item.Thumbnail.url}}" x="0" y="0" width="100%" height="100%"></image>
+                    </svg>
+                </div>
+                <div class="content">
+                    <div class="header">{{item.Title}}</div>
+                    <div class="description">{{item.Description}}</div>
+                    <div class="ui right aligned"><button class="ui inverted green button"><a target="_blank" href = {{item.ProjectUrl}}>Open</a></button></div>
+                </div>
+            </div>  
+        {% endfor %}  
+    </div>
+</body>
+</html>
